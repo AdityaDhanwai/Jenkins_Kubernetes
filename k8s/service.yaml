@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: web-app-service
 spec:
+  type: LoadBalancer
   selector:
     app: web-app
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer
+      port: 80        # The port exposed by the service
+      targetPort: 5000 # The port your Flask app is running on in the pod
